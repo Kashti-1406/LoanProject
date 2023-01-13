@@ -18,12 +18,7 @@ The application should be made in such a manner that it can easily be extended t
 Also bear in mind that it should be easy to extend the application to cover other payback schemes as well. We do not expect this to be implemented.
 
 
-Formula for EMI calculation is :  EMI = [P * R * (1+R)^N]/[(1+R)^N-1]
-P : Principle amount
-R: Rate of interest per annum.
-N: Repayment period. Total number of months.
-
-Mortgate calculator :
+HousingLoan calculator formula :
 
 M = P [((i * ( 1+i)^N )) / ((( 1+i)^N - 1) ) ]
 M = monthly payment
