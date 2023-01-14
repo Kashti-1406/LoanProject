@@ -2,6 +2,8 @@ package com.loan.loan_project;
 
 import java.text.NumberFormat;
 import java.time.Period;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 public class LoanUtility {
@@ -12,8 +14,13 @@ public class LoanUtility {
         return ( numberOfYears * 12 );
     }
 
+    public static String getCurrencyInEUR(double amountToConvert){
+        NumberFormat number= NumberFormat.getCurrencyInstance();
+        number.setCurrency(Currency.getInstance(Locale.GERMANY));
+        return number.format(amountToConvert);
+    }
     public static double calculateMonthlyRepayment(LoanDetails  loan){
-        log.info("In calculateMonthlyRepayment ");
+        //log.info("In calculateMonthlyRepayment ");
         double monthlyPayment =0.0;
         try {
             double monthlyInterest = (loan.getRateOfInterestAnnual()) / (12 * 100);
