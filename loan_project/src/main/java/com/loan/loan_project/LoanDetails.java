@@ -1,14 +1,22 @@
 package com.loan.loan_project;
 
+import org.springframework.stereotype.Component;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
-
+@Component
 public class LoanDetails {
+
 
     private double rateOfInterestAnnual;
     private double loanAmount;
     private double repaymentYears;
+
     private TypesOfLoan typeOfLoan;
+
     private double totalNumberOfPayments;
+    private BigDecimal monthlyPayment;
+    private BigDecimal totalPauBackAmount;
 
     public LoanDetails(){}
     public LoanDetails(double amount, double years, TypesOfLoan type){
@@ -62,6 +70,23 @@ public class LoanDetails {
         this.totalNumberOfPayments = repaymentYears * 12;
     }
 
+    public double getMonthlyPayment() {
+        return monthlyPayment.doubleValue();
+    }
+
+    public void setMonthlyPayment(double monthlyPayment) {
+        this.monthlyPayment = new BigDecimal(monthlyPayment).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    public double getTotalPauBackAmount() {
+        return totalPauBackAmount.doubleValue();
+    }
+
+    public void setTotalPauBackAmount(double totalPauBackAmount) {
+        this.totalPauBackAmount  = new BigDecimal(totalPauBackAmount).setScale(2, RoundingMode.HALF_UP);
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,10 +103,10 @@ public class LoanDetails {
     @Override
     public String toString() {
         return "LoanDetails{" +
-                "rateOfInterestAnnual=" + rateOfInterestAnnual +
-                ", loanAmount=" + loanAmount +
-                ", repaymentYears=" + repaymentYears +
-                ", typeOfLoan=" + typeOfLoan +
+                "\n rateOfInterestAnnual=" + rateOfInterestAnnual +
+                ",\n loanAmount=" + loanAmount +
+                ",\n repaymentYears=" + repaymentYears +
+                ",\n typeOfLoan=" + typeOfLoan +
                 '}';
     }
 }

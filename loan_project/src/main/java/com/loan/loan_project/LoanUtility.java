@@ -1,11 +1,14 @@
 package com.loan.loan_project;
 
 import java.text.NumberFormat;
-import java.time.Period;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+/**
+HousingLoan calculator formula :M = P [((i * ( 1+i)^N )) / ((( 1+i)^N - 1) ) ]
+M = monthly payment, P = Principle ,N = number of payments, i= Monthly interest rate
+* */
 public class LoanUtility {
 
     static Logger log = Logger.getLogger(LoanUtility.class.getName());
